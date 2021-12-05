@@ -6,11 +6,12 @@
 </head>
 <body>
 <h1>Hello there!</h1>
-<form action="/server/dispatcher" method="post">
+<form action="dispatcher" method="post">
     <select name="destination">
         <option value="st">Status</option>
         <option value="mv">Movies</option>
-        <option>Default</option>
+        <option value="add">Add Movie</option>
+
     </select>
     <input type="submit" value="Submit destination"/>
 </form>
