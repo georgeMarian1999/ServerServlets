@@ -1,6 +1,12 @@
 {"schemaVersion":"1.0"}
 {"id":1,"title":"Avengers","rating":10,"genre":"Action"}
 {"id":2,"title":"Avengers","rating":2,"genre":"Action"}
-{"id":3,"title":"Black Widow","rating":9,"genre":"Action"}
-{"id":4,"title":"Hunger Games","rating":7,"genre":"Drama"}
-{"id":5,"title":"A quiet place","rating":8,"genre":"Horror"}
+{"id":3,"title":"Salt","rating":9,"genre":"Action"}
+{"id":4,"title":"Black Panther","rating":8,"genre":"Fantasy"}
+{"id":5,"title":"Avengers: Age of Ultron","rating":7,"genre":"Action"}
+{"id":6,"title":"Outlander","rating":6,"genre":"Drama"}
+{"id":7,"title":"Salt","rating":8,"genre":"Action"}
+{"id":8,"title":"Black Widow","rating":8,"genre":"Fantasy"}
+{"id":9,"title":"Bird Box","rating":8,"genre":"Horror"}
+{"id":10,"title":"Dynasty","rating":7,"genre":"Drama"}
+{"id":11,"title":"Dune","rating":7,"genre":"Action"}

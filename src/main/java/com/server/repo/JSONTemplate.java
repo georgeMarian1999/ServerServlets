@@ -28,6 +28,18 @@ public class JSONTemplate {
     public void saveMovie(Movie movie){
         this.jsonDBTemplate.save(movie,Movie.class);
     }
+    public int getMaxId() {
+        List<Movie> movies = this.jsonDBTemplate.findAll(Movie.class);
+        int id = -99999;
+        for (Movie mov:movies
+             ) {
+            if(mov.getId() > id) {
+                id = mov.getId();
+            }
+        }
+        return id + 1;
+
+    }
     public List<Movie> getMovies(){
         return this.jsonDBTemplate.findAll(Movie.class);
     }

@@ -19,7 +19,6 @@ war {
    rootSpec.exclude ("**/tomcat*.jar")
     rootSpec.exclude ("**/jetty*.jar")
     rootSpec.include ("**/*")
-
 }
 
 repositories {

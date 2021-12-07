@@ -24,7 +24,7 @@
     </servlet-mapping>
     <servlet>
         <servlet-name>AddMovie</servlet-name>
-        <servlet-class>com.server.servlets.AddMovieServlet</servlet-class>
+        <servlet-class>com.server.servlets.AddMovieFormServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>AddMovie</servlet-name>
@@ -50,12 +50,4 @@
     <welcome-file-list>
         <welcome-file>index.html</welcome-file>
     </welcome-file-list>
-<!--   <servlet>-->
-<!--       <servlet-name>Client</servlet-name>-->
-<!--       <servlet-class>com.server.servlets.ClientServlet</servlet-class>-->
-<!--   </servlet>-->
-<!--    <servlet-mapping>-->
-<!--        <servlet-name>Client</servlet-name>-->
-<!--        <url-pattern>/</url-pattern>-->
-<!--    </servlet-mapping>-->
 </web-app>

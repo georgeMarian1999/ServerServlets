@@ -1,20 +1,14 @@
 package com.server.servlets;
 
-import com.google.gson.Gson;
-import com.server.model.Movie;
-import com.server.repo.Repository;
-
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.List;
+import java.io.*;
+import java.net.URL;
+import java.net.URLConnection;
 
-public class AddMovieServlet extends HttpServlet {
+public class AddMovieFormServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         doPost(request,response);
     }
@@ -23,14 +17,21 @@ public class AddMovieServlet extends HttpServlet {
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
         StringBuilder contentBuilder = new StringBuilder();
+
         try {
-            BufferedReader in = new BufferedReader(new FileReader("C:\\Work\\server\\src\\main\\webapp\\AddMovieForm.html"));
             String str;
+            BufferedReader in;
+
+            URL index = new URL("http://localhost:8080/server/form.html");
+            URLConnection yc = index.openConnection();
+            in = new BufferedReader(new InputStreamReader(yc.getInputStream()));
+
             while ((str = in.readLine()) != null) {
                 contentBuilder.append(str);
             }
             in.close();
         } catch (IOException e) {
+            request.getRequestDispatcher("/errorMessage.html").forward(request, response);
         }
         String content = contentBuilder.toString();
         out.println(content);
