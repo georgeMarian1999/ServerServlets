@@ -12,12 +12,8 @@ import org.eclipse.jetty.servlet.DefaultServlet;
 import org.eclipse.jetty.servlet.ServletContextHandler;
 import org.eclipse.jetty.servlet.ServletHandler;
 import org.eclipse.jetty.servlet.ServletHolder;
-import org.eclipse.jetty.util.resource.Resource;
-import org.graalvm.compiler.core.common.type.ArithmeticOpTable;
 
-import java.io.File;
-import java.net.URI;
-import java.net.URL;
+import static com.server.utils.Utils.getSystemPath;
 
 public class JettyServer {
     private Server server;
@@ -25,6 +21,8 @@ public class JettyServer {
     public JettyServer(){
         server = new Server();
     }
+
+
 
     public void start() throws Exception {
 
@@ -38,13 +36,11 @@ public class JettyServer {
         servletContextHandler.setContextPath("/server");
 
 
-        servletContextHandler.setResourceBase("C:\\Work\\server\\src\\main\\webapp");
         server.setHandler(servletContextHandler);
         servletContextHandler.setWelcomeFiles(new String[]{"index.html"});
 
-
         ServletHolder holderPwd = new ServletHolder("default", DefaultServlet.class);
-        holderPwd.setInitParameter("resourceBase","C:\\Work\\server\\src\\main\\webapp");
+        holderPwd.setInitParameter("resourceBase",getSystemPath());
         holderPwd.setInitParameter("dirAllowed","true");
         servletContextHandler.addServlet(holderPwd,"/");
 
@@ -52,6 +48,7 @@ public class JettyServer {
         servletContextHandler.addServlet(MoviesServlet.class,"/movies");
         servletContextHandler.addServlet(DispatcherServlet.class, "/dispatcher");
         servletContextHandler.addServlet(AddMovieFormServlet.class, "/addMovie");
+        servletContextHandler.addServlet(DeleteServlet.class, "/delete");
         servletContextHandler.addServlet(AddServlet.class, "/add");
 
         server.start();

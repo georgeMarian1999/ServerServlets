@@ -1,7 +1,7 @@
 package com.server.servlets;
 
 import com.server.model.Movie;
-import com.server.repo.JSONTemplate;
+import com.server.jsontemplate.JSONTemplate;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -33,7 +33,17 @@ public class MoviesServlet extends HttpServlet {
                 "            border-collapse: collapse;\n" +
                 "            width: 100%;\n" +
                 "        }\n" +
+                ".button {\n" +
+                        "            background: #e14e4e;\n" +
+                        "            border-radius: 7px;\n" +
+                        "            padding: 10px;\n" +
+                        "            border-width: 0;\n" +
+                        "            width: 130px;\n" +
+                        "            color: white;\n" +
+                        "            cursor: pointer;\n" +
+                        "        }"+
                 "\n" +
+                "        .hidden { display: none;}   "+
                 "        td, th {\n" +
                 "            border: 1px solid #dddddd;\n" +
                 "            text-align: left;\n" +
@@ -72,14 +82,21 @@ public class MoviesServlet extends HttpServlet {
         out.println("<td>Title</td>");
         out.println("<td>Rating</td>");
         out.println("<td>Genre</td>");
+        out.println("<td>Delete action</td>");
 
         for (Movie mov:movies
             ) {
             out.println("<tr>");
             out.println("<td>"+mov.getId()+"</td>");
             out.println("<td>"+mov.getTitle()+"</td>");
-            out.println("<td>"+mov.getRating()+"</td>");
+            out.println("<td>"+mov.getRating()+"/10</td>");
             out.println("<td>"+mov.getGenre()+"</td>");
+            out.println("<td>\n" +
+                    "                    <form action=\"dispatcher\" method=\"post\">\n" +
+                    "                        <input type=\"text\" name=\"deleteId\" class=\"hidden\" value=\""+mov.getId()+"\" />\n" +
+                    "                        <input class=\"button\" type=\"submit\" value=\"Delete\">\n" +
+                    "                    </form>\n" +
+                    "                </td>");
             out.println("</tr>");
             }
 

@@ -74,8 +74,4 @@ public class Movie {
                 '}';
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, title, rating, genre);
-    }
 }

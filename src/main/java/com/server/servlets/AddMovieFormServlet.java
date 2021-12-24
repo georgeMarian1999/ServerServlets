@@ -21,8 +21,8 @@ public class AddMovieFormServlet extends HttpServlet {
         try {
             String str;
             BufferedReader in;
-
-            URL index = new URL("http://localhost:8080/server/form.html");
+            String location = request.getRequestURL().toString().split("/")[3];
+            URL index = new URL("http://localhost:8080/"+location+"/form.html");
             URLConnection yc = index.openConnection();
             in = new BufferedReader(new InputStreamReader(yc.getInputStream()));
 

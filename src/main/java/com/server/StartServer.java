@@ -10,6 +10,9 @@ public class StartServer {
 
         int decision;
         System.out.println("Ce server doriti sa rulati?");
+        System.out.println("1.Tomcat Server");
+        System.out.println("2.Jetty Server");
+        System.out.println("Introduceti numarul specificat");
         Scanner keyboard = new Scanner(System.in);
         decision = keyboard.nextInt();
         if(decision == 1) {
